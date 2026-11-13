@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Question</title>
+<style>
+body{
+font-family: Arial, sans-serif;
+background: #ffe6e6;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+text-align:center;
+}
+.container{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+max-width:500px;
+}
+button{
+padding:10px 20px;
+margin:10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+.yes{background:#ff4d6d;color:white;}
+.no{background:#777;color:white;}
+input{
+padding:10px;
+width:80%;
+margin-top:10px;
+}
+</style>
+</head>
+<body>
+ 
+<div class="container" id="page1">
+<h2>💖 Click the link below 💖</h2>
+<a href="#" onclick="showLoveQuestion()">Open Question</a>
+</div>
+ 
+<div class="container" id="page2" style="display:none;">
+<h2>Do you love me? ❤️</h2>
+<button class="yes" onclick="showConfirmPage()">Yes</button>
+<button class="no" onclick="alert('That hurts 😢')">No</button>
+</div>
+ 
+<div class="container" id="page3" style="display:none;">
+<h2>Are you sure about the previous answer? ❤️</h2>
+<p>Just to confirm, rate how much you love me from 0 to 10.</p>
+<input type="number" id="rating" min="0" max="10" placeholder="Enter 0-10">
+<br>
+<button class="yes" onclick="showFinalPage()">Submit</button>
+</div>
+ 
+<div class="container" id="page4" style="display:none;">
+<h1>Sorry ❤️</h1>
+<p>
+Whatever the problem is, we need to talk about it and sort it out together.
+You mean a lot to me, and every misunderstanding can be fixed with honest
+conversation and understanding. 💕
+</p>
+</div>
+ 
+<script>
+function showLoveQuestion(){
+document.getElementById("page1").style.display="none";
+document.getElementById("page2").style.display="block";
+}
+ 
+function showConfirmPage(){
+document.getElementById("page2").style.display="none";
+document.getElementById("page3").style.display="block";
+}
+ 
+function showFinalPage(){
+let rating = document.getElementById("rating").value;
+ 
+if(rating === "" || rating < 0 || rating > 10){
+alert("Please enter a number between 0 and 10.");
+return;
+}
+ 
+document.getElementById("page3").style.display="none";
+document.getElementById("page4").style.display="block";
+}
+</script>
+ 
+</body>
+</html>
